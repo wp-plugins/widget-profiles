@@ -1,7 +1,7 @@
 === Widget Profiles ===
 Contributors: dubayou, will wharton, Zax, Michael Zaxby
 Donate link: http://iheartwp.com/donate-to-development/
-Tags: widget,widgets,profile,widget profiles,widget location,widget position
+Tags: widget, admin, plugin, formatting,widgets,profile,widget profiles,widget location,widget position
 Requires at least: 2.0.2
 Tested up to: 2.5
 Stable tag: trunk
