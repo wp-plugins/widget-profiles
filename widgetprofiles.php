@@ -5,7 +5,7 @@ Plugin URI: http://iheartwp.com/
 Description: This little plugin allows you to save widget profiles and builds.  Look under the 'Design' tab for 'Widget Profiles'.  If you can donate please do.  
 Author: Dubayou, Will Wharton, Zax, Michael Zaxby
 Version: 1.1
-Author URI: http://iheartwp.com/
+Author URI: http://dubayou.com/
 
 Please if you can donate to my development it would be most appreciated, I'm just a poor college student attending the University of North Carolina at Wilmington. 
 http://iheartwp.com/donate-to-development/
