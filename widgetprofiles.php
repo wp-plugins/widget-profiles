@@ -4,7 +4,7 @@ Plugin Name: Widget Profiles
 Plugin URI: http://iheartwp.com/
 Description: This little plugin allows you to save widget profiles and builds.  Look under the 'Design' tab for 'Widget Profiles'.  If you can donate please do.  
 Author: Dubayou, Will Wharton, Zax, Michael Zaxby
-Version: 1.2
+Version: 1.3
 Author URI: http://dubayou.com/
 
 Please if you can donate to my development it would be most appreciated, I'm just a poor college student attending the University of North Carolina at Wilmington. 
@@ -12,13 +12,15 @@ http://iheartwp.com/donate-to-development/
 Even $1 dollar helps.
 
 Changelog:
-April 12, 2008:  Added to Wordpress.org Extend Dir. And Hotfix for nameing issues
-April 10, 2008:  Clean Code, Fixed Bugs
+
+April 13, 2008: Better naming support
+April 12, 2008: Added to Wordpress.org Extend Dir. And Hotfix for naming issues
+April 10, 2008: Clean Code, Fixed Bugs
 April 09, 2008: Initial Release. Can save/load/ and undo widget profiles.  Very helpful.
 
 FAQ:
 
-None Yet; Lets Talk WordPress! iheartwpMZ@gmail.com
+None Yet; Lets Talk WordPress! dubayou+widgetprofiles@gmail.com
 
 Features to Come:
 
@@ -33,6 +35,9 @@ $myself = "widget-profiles/widgetprofiles.php";
 register_activation_hook(__FILE__,'widgetprofiles_install');
 add_action('init', 'widgetprofiles_init');
 add_action('admin_head', 'widgetprofiles_head');
+
+
+
 //
 // hook code
 //
@@ -41,7 +46,10 @@ function widgetprofiles_init() {
 	add_action('admin_menu', 'widgetprofiles_add_menus');
 }
 function widgetprofiles_add_menus() {
-	add_submenu_page('themes.php', 'Widgets Profiles', 'Widgets Profiles', 8, __FILE__, 'widgetprofiles_run');
+	add_submenu_page('themes.php', 'Widgets Profiles', 'Widgets Profiles', 8, 'widgetprofiles', 'widgetprofiles_run'); 
+	
+
+	//add_submenu_page('themes.php', __('Widgets Profiles','widgetprofiles'), __('Widgets Profiles',''widgetprofiles'), 8, 'widgetprofiles', 'widgetprofiles_run');
 }
 function widgetprofiles_head() {
 	global $wp_db_version;
@@ -120,7 +128,7 @@ widgetprofiles_display();
 //$num is index of widgetbuild in old_sidebars_widgets
 //change/update current widgets
 function widgetprofiles_changeto($num){
-global $myself;
+
 update_option('old_sidebars_widgets', get_option("sidebars_widgets"));
 $allwidgets = get_option("saved_sidebars_widgets");
 update_option('sidebars_widgets', $allwidgets[$num]['widgets']);
@@ -129,7 +137,7 @@ update_option('sidebars_widgets', $allwidgets[$num]['widgets']);
 	//open saved_sidebars_widgets
 	//get array item for 
 	//update sidebars_widgets with item
-echo "In case your widges arn't looking good, you can <a href=\"themes.php?page=".$myself."&dowhat=undo\">Undo</a> this.<br>";
+echo "In case your widges arn't looking good, you can <a href=\"themes.php?page=widgetprofiles&dowhat=undo\">Undo</a> this.<br>";
 widgetprofiles_display();
 	//display undo link
 }
@@ -139,10 +147,10 @@ widgetprofiles_display();
 //$theme is the current theme or defaults to ""
 //display list of currently saved widgets
 function widgetprofiles_display($theme=""){	
-global $myself;
+
 echo "<h2>Save current Widget Arrangement</h2><br>";			
 ?>
-<form enctype="multipart/form-data" action="?page=<? echo $myself; ?>&dowhat=savebuild" method="post" id="widgetprofiles" name="savewidgetprofile"> 
+<form enctype="multipart/form-data" action="?page=widgetprofiles&dowhat=savebuild" method="post" id="widgetprofiles" name="savewidgetprofile"> 
 Profile Note: <input type="text" name="desc" value="A quick description..."><input type="submit" value="Save Current Widget Arrangement">
 </form>
 <?php
@@ -175,7 +183,7 @@ Profile Note: <input type="text" name="desc" value="A quick description..."><inp
 						<td>'.$allwidgets[$i]['theme'].'</td>
 						<td style="text-align:left">'.$allwidgets[$i]['desc'].'</td>
 						<td style="text-align:left">'.$allwidgets[$i]['date'].'</td>
-						<td><a href="?page='.$myself.'&dowhat=restore&widgetid='.$i.'"><img src="http://iheartwp.com/inc/edit.png" alt="Restore" title="Restore" /></a> <a href="?page='.$myself.'&dowhat=remove&widgetid='.$i.'"><img src="http://iheartwp.com/inc/cross.png" alt="Delete" title="Delete" /></a></td>';
+						<td><a href="?page=widgetprofiles&dowhat=restore&widgetid='.$i.'"><img src="http://iheartwp.com/inc/edit.png" alt="Restore" title="Restore" /></a> <a href="?page=widgetprofiles&dowhat=remove&widgetid='.$i.'"><img src="http://iheartwp.com/inc/cross.png" alt="Delete" title="Delete" /></a></td>';
 
 					}
 					echo '</tbody>';
