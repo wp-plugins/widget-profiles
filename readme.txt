@@ -22,6 +22,13 @@ design of your site.
 *   Manage Unlimited Widget Profiles
 *   Dummy Proof Undo Feature
 
+= Changelog =
+
+Aoril 13th, 2008: Fix nameing issues more
+April 12th, 2008: Money Hack to fix nameing issues
+April 10th, 2008: v1.1 - Fixing install bugs & cleaned code
+April  9th, 2008: v1.0 - First Release
+
 == Installation ==
 
 This section describes how to install the plugin and get it working.
