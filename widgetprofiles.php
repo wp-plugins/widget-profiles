@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Widget Profiles
-Plugin URI: http://iheartwp.com/
+Plugin URI: http://iheartwp.com/wordpress-plugin-widget-profiles/
 Description: This little plugin allows you to save widget profiles and builds.  Look under the 'Design' tab for 'Widget Profiles'.  If you can donate please do.  
 Author: Dubayou, Will Wharton, Zax, Michael Zaxby
 Version: 1.3
